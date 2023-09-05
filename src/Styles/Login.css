@@ -5,14 +5,14 @@
     
     background-size: cover;
 }
-.loginscreen_logo{
+.loginscreen-logo{
     position: fixed;
     left: 0;
     width: 150px;
     object-fit: contain;
     padding-left: 20px;
 }
-.loginscreen_button{
+.loginscreen-button{
     position: fixed;
     top: 20px;
     right: 5%;
@@ -22,7 +22,7 @@
     border-radius: 6px;
     background-color: #e50914;
 }
-.loginscreen_gradient{
+.loginscreen-gradient{
     width: 100%;
     z-index: 1;
     height: 100vh;
@@ -35,7 +35,7 @@
     );
    
 }
-.loginscreen_body{
+.loginscreen-body{
     position: absolute;
     z-index: 1;
     top: 30%;
@@ -46,27 +46,27 @@
     left: 0;
     right: 0;
 }
-.loginscreen_body > h1{
+.loginscreen-body > h1{
     font-size: 3.125rem;
     margin-bottom: 20px;
 }
-.loginscreen_body > h2{
+.loginscreen-body > h2{
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 30px;
 }
-.loginscreen_body > h3{
+.loginscreen-body > h3{
     font-size: 1.3rem;
     font-weight: 400;
 }
-.loginscreen_input > form > input{
+.loginscreen-input > form > input{
     padding: 16px;
     outline-width: 0;
     width: 30%;
     border: none;
     max-width: 600px;
 }
-.loginscreen_getStarted{
+.loginscreen-getStarted{
     padding: 16px 20px;
     font-size: 1rem;
     color: #fff;
@@ -75,6 +75,6 @@
     cursor: pointer;
     font-weight: 600;
 }
-.loginscreen_input{
+.loginscreen-input{
     margin: 20px;
 }

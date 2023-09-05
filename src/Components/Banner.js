@@ -31,17 +31,17 @@ export default function Banner() {
         backgroundPosition: 'center 15%',
       }}
     >
-      <div className='banner_contents'>
-        <h1 className='banner_title'>
+      <div className='banner-contents'>
+        <h1 className='banner-title'>
           {movie?.original_name || movie?.name || movie?.title}
         </h1>
-        <div className='banner_buttons'>
-          <button className='banner_button'>Play</button>
-          <button className='banner_button'>My List</button>
+        <div className='banner-buttons'>
+          <button className='banner-button'>Play</button>
+          <button className='banner-button'>My List</button>
         </div>
-        <h1 className='banner_description'>{truncate(movie?.overview, 150)}</h1>
+        <h1 className='banner-description'>{truncate(movie?.overview, 150)}</h1>
       </div>
-      <div className='banner_fadebottom' />
+      <div className='banner-fadebottom' />
     </header>
   );
 }

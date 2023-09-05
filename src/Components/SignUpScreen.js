@@ -21,7 +21,7 @@ export default function SignUpScreen() {
   };
   return (
     <div>
-      <div className='signUp_screen'>
+      <div className='signUp-screen'>
         <form>
           <h1>Sign In</h1>
           <input
@@ -43,7 +43,7 @@ export default function SignUpScreen() {
               to='/home'
             >
               <button
-                className='signUp_screen_signIn btn btn-light'
+                className='signUp-screen-signIn btn btn-light'
                 // onClick={signIn}
                 disabled={EmailValue && passwordValue ? false : true}
                 type='submit'
@@ -54,8 +54,8 @@ export default function SignUpScreen() {
           )}
 
           <h4>
-            <span className='signUpScreen_grey'>New to Netflix? </span>
-            <span onClick={register} className='signUpScreen_link'>
+            <span className='signUpScreen-grey'>New to Netflix? </span>
+            <span onClick={register} className='signUpScreen-link'>
               Sign Up now.
             </span>
           </h4>

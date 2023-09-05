@@ -8,19 +8,19 @@ export default function Home() {
 
   return (
     <div className='loginscreen'>
-      <div className='loginscreen_background'>
+      <div className='loginscreen-background'>
         <img
-          className='loginscreen_logo'
+          className='loginscreen-logo'
           src='https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png'
           alt='....'
         />
-        <button onClick={() => setSignUp(true)} className='loginscreen_button'>
+        <button onClick={() => setSignUp(true)} className='loginscreen-button'>
           Sign In
         </button>
 
-        <div className='loginscreen_gradient'></div>
+        <div className='loginscreen-gradient'></div>
 
-        <div className='loginscreen_body'>
+        <div className='loginscreen-body'>
           {signUp ? (
             <SignUpScreen />
           ) : (
@@ -31,13 +31,13 @@ export default function Home() {
                 Ready to watch? Enter your email to create or restart your
                 membership.
               </h3>
-              <div className='loginscreen_input'>
+              <div className='loginscreen-input'>
                 <form>
                   <input type='email' placeholder='Email Address' />
 
                   <button
                     onClick={() => setSignUp(true)}
-                    className='loginscreen_getStarted'
+                    className='loginscreen-getStarted'
                   >
                     GET STARTED
                   </button>

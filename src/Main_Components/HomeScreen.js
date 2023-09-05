@@ -98,6 +98,7 @@ export default function HomeScreen() {
     let fetchHorrorMovies = async () => {
       var response = await axios.get(request.fetchHorrorMovies);
       setHorrorMovies(response.data.results);
+      setAllMovies(allMovies.concat(response.data.results));
       return response;
     };
     fetchHorrorMovies();
@@ -105,6 +106,7 @@ export default function HomeScreen() {
     let fetchRomanticMovies = async () => {
       var response = await axios.get(request.fetchRomanticMovies);
       setRomanticMovies(response.data.results);
+      setAllMovies(allMovies.concat(response.data.results));
       return response;
     };
     fetchRomanticMovies();
@@ -112,12 +114,14 @@ export default function HomeScreen() {
     let fetchDocumentaries = async () => {
       var response = await axios.get(request.fetchDocumentaries);
       setDocumentary(response.data.results);
+      setAllMovies(allMovies.concat(response.data.results));
       return response;
     };
     fetchDocumentaries();
   }, []);
+  // console.log(allMovies);
 
-  var handlefilter = (e) => {
+  var handleFilter = (e) => {
     searchWord = e.target.value;
     var newFilter = NetflixOriginals.filter((value) => {
       return (
@@ -128,8 +132,8 @@ export default function HomeScreen() {
     setFilterdata(newFilter);
   };
 
-  var handlekeys = () => {
-    window.addEventListener('keyup', handlefilter);
+  var handleKeys = () => {
+    window.addEventListener('keyup', handleFilter);
   };
 
   // const opts = {
@@ -160,15 +164,15 @@ export default function HomeScreen() {
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
-    <div className='Home_screen'>
-      <div className={`nav ${show && 'nav_black'}`}>
-        <div className='nav_contents'>
+    <div className='Home-screen'>
+      <div className={`nav ${show && 'nav-black'}`}>
+        <div className='nav-contents'>
           <img
-            className='nav_logo'
+            className='nav-logo'
             src='https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png'
             alt='navLogo'
           />
-          <div className='nav_inner_contents'>
+          <div className='nav-inner-contents'>
             <Link className='nav-inners'>Home</Link>
             <Link className='nav-inners'>Tv Shows</Link>
             <Link className='nav-inners'>Movies</Link>
@@ -180,8 +184,8 @@ export default function HomeScreen() {
                 <input
                   id='input'
                   type='text'
-                  className='nav_searchbar'
-                  onClick={handlekeys}
+                  className='nav-searchbar'
+                  onClick={handleKeys}
                 />
                 <CloseIcon
                   onClick={() => {
@@ -201,7 +205,7 @@ export default function HomeScreen() {
             />
           )}
           <img
-            className='nav_avatar'
+            className='nav-avatar'
             src='https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png'
             alt='navAvatar'
           />
@@ -218,29 +222,29 @@ export default function HomeScreen() {
           backgroundPosition: 'center 15%',
         }}
       >
-        <div className='banner_contents'>
-          <h1 className='banner_title'>
+        <div className='banner-contents'>
+          <h1 className='banner-title'>
             {movie?.original_name || movie?.name || movie?.title}
           </h1>
-          <div className='banner_buttons'>
-            <button className='banner_button'>Play</button>
-            <button className='banner_button'>My List</button>
+          <div className='banner-buttons'>
+            <button className='banner-button'>Play</button>
+            <button className='banner-button'>My List</button>
           </div>
-          <h1 className='banner_description'>
+          <h1 className='banner-description'>
             {truncate(movie?.overview, 200)}
           </h1>
         </div>
-        <div className='banner_fadebottom' />
+        <div className='banner-fadebottom' />
       </header>
       {/* <Banner/> **************************************************/}
 
       <div className='row'>
         <h2>Netflix Originals</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {filteredData.length
             ? filteredData.map((movie) => (
                 <img
-                  className='row_poster row_posterLarger'
+                  className='row-poster row-posterLarger'
                   key={movie.id}
                   src={`${Base_URL}${movie.poster_path}`}
                   alt={movie.name}
@@ -249,7 +253,7 @@ export default function HomeScreen() {
               ))
             : NetflixOriginals.map((movie) => (
                 <img
-                  className='row_poster row_posterLarger'
+                  className='row-poster row-posterLarger'
                   key={movie.id}
                   src={`${Base_URL}${movie.poster_path}`}
                   alt={movie.name}
@@ -261,12 +265,12 @@ export default function HomeScreen() {
 
       <div className='row'>
         <h2>Top Rated</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {TopRatedMovies.map((movie) => (
             // ((props.isLargeRow && movie.poster_path) ||
             // (!props.isLargeRow && movie.backdrop_path)) &&(
             <img
-              className='row_poster'
+              className='row-poster'
               key={movie.id}
               src={`${Base_URL}${movie.backdrop_path}`}
               alt={movie.name}
@@ -279,12 +283,12 @@ export default function HomeScreen() {
 
       <div className='row'>
         <h2>Action Movies</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {ActionMovies.map((movie) => (
             // ((props.isLargeRow && movie.poster_path) ||
             // (!props.isLargeRow && movie.backdrop_path)) &&(
             <img
-              className='row_poster'
+              className='row-poster'
               key={movie.id}
               src={`${Base_URL}${movie.backdrop_path}`}
               alt={movie.name}
@@ -297,12 +301,12 @@ export default function HomeScreen() {
 
       <div className='row'>
         <h2>Comedy Movies</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {ComedyMovies.map((movie) => (
             // ((props.isLargeRow && movie.poster_path) ||
             // (!props.isLargeRow && movie.backdrop_path)) &&(
             <img
-              className='row_poster'
+              className='row-poster'
               key={movie.id}
               src={`${Base_URL}${movie.backdrop_path}`}
               alt={movie.name}
@@ -315,12 +319,12 @@ export default function HomeScreen() {
 
       <div className='row'>
         <h2>Horror Movies</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {HorrorMovies.map((movie) => (
             // ((props.isLargeRow && movie.poster_path) ||
             // (!props.isLargeRow && movie.backdrop_path)) &&(
             <img
-              className='row_poster'
+              className='row-poster'
               key={movie.id}
               src={`${Base_URL}${movie.backdrop_path}`}
               alt={movie.name}
@@ -333,12 +337,12 @@ export default function HomeScreen() {
 
       <div className='row'>
         <h2>Romantic Movies</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {RomanticMovies.map((movie) => (
             // ((props.isLargeRow && movie.poster_path) ||
             // (!props.isLargeRow && movie.backdrop_path)) &&(
             <img
-              className='row_poster'
+              className='row-poster'
               key={movie.id}
               src={`${Base_URL}${movie.backdrop_path}`}
               alt={movie.name}
@@ -351,12 +355,12 @@ export default function HomeScreen() {
 
       <div className='row'>
         <h2>Documentaries</h2>
-        <div className='row_posters'>
+        <div className='row-posters'>
           {Documentary.map((movie) => (
             // ((props.isLargeRow && movie.poster_path) ||
             // (!props.isLargeRow && movie.backdrop_path)) &&(
             <img
-              className='row_poster'
+              className='row-poster'
               key={movie.id}
               src={`${Base_URL}${movie.backdrop_path}`}
               alt={movie.name}

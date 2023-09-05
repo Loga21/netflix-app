@@ -16,14 +16,14 @@ export default function Row(props) {
   return (
     <div className='row'>
       <h2>{props.title}</h2>
-      <div className='row_posters'>
+      <div className='row-posters'>
         {rowMovies.map(
           (movie) =>
             ((props.isLargeRow && movie.poster_path) ||
               (!props.isLargeRow && movie.backdrop_path)) && (
               <img
-                className={`row_poster ${
-                  props.isLargeRow && 'row_posterLarger'
+                className={`row-poster ${
+                  props.isLargeRow && 'row-posterLarger'
                 }`}
                 key={movie.id}
                 src={`${Base_URL}${
